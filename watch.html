@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="app.css">
+    <script src="jquery-3.6.0.min.js"></script>
+    <title>시계(0105 조희연)</title>
+</head>
+<body>
+    <div class="container">
+        <div class="watch">
+            <div class="hour">
+                <div class="box">00</div><span>시</span>
+                <div class="box">01</div>
+            </div>
+            <div class="minute">
+                <div class="box">00</div><span>분</span>
+                <div class="box">01</div>
+            </div>
+            <div class="second">
+                <div class="box">00</div><span>초</span>
+                <div class="box">01</div>
+            </div>
+        </div>
+        <div class="control">
+            <button id="start">시작</button>
+            <!-- <button id="stop">정지</button> -->
+        </div>
+    </div>
+    <script>
+         $("#start").on("click", function (){
+            let interval = function (){
+                let now = new Date();
+                let h = `${"00" + now.getHours()}`.substr(-2);
+                let m = ("00" + now.getMinutes()).substr(-2);
+                let s = ("00" + now.getSeconds()).substr(-2);
+            
+                $(".hour > .box").eq(1).text(h);
+                $(".minute > .box").eq(1).text(m);
+                $(".second > .box").eq(1).text(s);
+            
+                $(".hour > .box").eq(1).animate({"top":0}, 500);
+                $(".minute > .box").eq(1).animate({"top":0}, 500);
+                $(".second > .box").eq(1).animate({"top":0}, 500);
+            
+                $(".hour > .box").eq(0).animate({"top":"-100%"}, 500);
+                $(".minute > .box").eq(0).animate({"top":"-100%"}, 500);
+                $(".second > .box").eq(0).animate({"top":"-100%"}, 500);
+            
+                setTimeout(function(){
+                    $(".hour > .box").eq(0).text(h);
+                    $(".minute > .box").eq(0).text(m);
+                    $(".second > .box").eq(0).text(s);
+            
+                    $(".second > .box").eq(0).css({"top":0});
+                    $(".second > .box").eq(1).css({"top":"100%"});
+                    
+                    if(s==59)
+                    {
+                        $(".minute > .box").eq(0).css({"top":0});
+                        $(".minute > .box").eq(1).css({"top":"100%"});
+                    }
+
+                    if(m==59 && s==59)
+                    {
+                        $(".hour > .box").eq(0).css({"top":0});
+                        $(".hour > .box").eq(1).css({"top":"100%"});
+                    }
+            
+                    //css({"top":0})
+                }, 600);}
+            setInterval(interval, 1000);
+            // $("#stop").on("click", function (){
+            //     clearInterval(now);
+            // });
+        });
+        
+    </script>
+</body>
+</html>
