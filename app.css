@@ -14,7 +14,7 @@
 }
 .watch{
     border: black 1px solid;
-    border-radius: 20px;
+    border-radius: 30px;
     padding: 50px;
     width: 620px;
     display: flex;
@@ -61,11 +61,11 @@ button:first-child:hover{
     background-color: rgb(0, 170, 0);
     color: #fff;
 }
-/* button:last-child{
+button:last-child{
     background-color: rgb(170, 0, 0);
     color: #fff;
-} */
-/* button:last-child:hover{
+}
+button:last-child:hover{
     background-color: red;
     color: #fff;
-} */
+}
