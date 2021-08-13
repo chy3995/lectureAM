@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/app.css">
+    <title>코로나 현황 (0105 조희연)</title>
+</head>
+<body>
+    <h2>코로나 현황</h2>
+    <div class="container">
+        <div class="data-div1">
+            <div class="title">
+                <h4>전일대비</h4>
+            </div>
+            ---------------------<br><br>
+            <div class="content">
+                소계 : <%= data.before[0] %>, <br><br>
+                국내발생 : <%= data.before[1] %>, <br><br>
+                해외유입 : <%= data.before[2] %>
+            </div>
+        </div>
+        <div class="data-div2">
+            <div class="title">
+                <h4>격리해제</h4>
+            </div>
+            ---------------------<br><br>
+            <div class="content">
+                누적 : <%= data.out[0] %>, <br><br>
+                전일대비 : <%= data.out[1] %>
+            </div>
+        </div>
+        <div class="data-div3">
+            <div class="title">
+                <h4>격리</h4>
+            </div>
+            ---------------------<br><br>
+            <div class="content">
+                누적 : <%= data.in[0] %>, <br><br>
+                전일대비 : <%= data.in[1] %>
+            </div>
+        </div>
+        <div class="data-div4">
+            <div class="title">
+                <h4>사망</h4>
+            </div>
+            ---------------------<br><br>
+            <div class="content">
+                누적 : <%= data.dead[0] %>, <br><br>
+                전일대비 : <%= data.dead[1] %>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
